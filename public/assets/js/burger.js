@@ -5,7 +5,7 @@ $(function () {
     e.preventDefault()
     var newBurger = {
       newBurger: $('#newBurger').val().trim(),
-      devoured: false
+      devoured: 0
     };
 
     function validateForm() {

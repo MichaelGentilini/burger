@@ -1,10 +1,10 @@
-<h1 class="text-center mt-2 mb-2">Burgers</h1>
+<h1 class="text-center mt-2 mb-2">Menu</h1>
 <div class="row">
   <div class="col-1"></div>
   <div class="col">
-    <h4>Burgers available on the menu</h4>
+    <h4>Available Burgers</h4>
 
-    <ul>
+    <ul style="list-style: none">
       {{#each burgers}}
       {{#unless devoured}}
       {{> burgers-view devoured=false}}
@@ -13,9 +13,9 @@
     </ul>
   </div>
   <div class="col">
-    <h4>Burgers that have been eaten</h4>
+    <h4>Bye Bye Burgers</h4>
 
-    <ul>
+    <ul style="list-style: none">
       {{#each burgers}}
       {{#if devoured}}
       {{> burgers-view devoured=true}}
@@ -24,19 +24,19 @@
     </ul>
   </div>
 </div>
-<h3>Add a Burger</h3>
+
 <div class="container mt-4">
   <div class="card text-center">
     <div class="form-group">
-      <h2 for="newBurger"> Add a Burger</h2>
+      <h3 for="newBurger"> Add a Burger</h3>
       <div class="form-row mt-2 mb-2">
         <div class="col-1"></div>
         <div class="col-8 col-sm-6">
-          <input type="text" name="newBurger" id="newBurger" class="form-control" placeholder="Yummy Burger Name">
+          <input type="text" name="newBurger" id="newBurger" class="form-control" placeholder="Enter Burger Name">
         </div>
         <div class="col">
-          <button class="btn-block btn-success mt-1" id="submitBurger" name="submitBurger" type="submit"><i
-              class="fas fa-hamburger"></i>&nbsp;&nbsp;&nbsp;
+          <button class="btn-block btn-success mt-1" id="submitBurger" name="submitBurger" type="submit" <i
+            class="fas fa-hamburger"></i>&nbsp;&nbsp;&nbsp;
             &nbsp; Add a Burger</button>
         </div>
         <div class="col-1"></div>

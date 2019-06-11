@@ -10,13 +10,16 @@ var burger = {
       cb(res);
     });
   },
-  insertOne: function (cb) {
-    orm.insertOne("burgers", "burger_name", "devoured", burgerName, false, function (res) {
+  // ! create a new burger
+  insertOne: function (cols, vals, cb) {
+    orm.insertOne("burgers", cols, vals, function (res) {
       cb(res);
     });
   },
-  updateOne: function (cb) {
-    orm.updateOne("burgers", "devoured", true, "id", burgerId, function (res) {
+
+  // ! eat a burger
+  updateOne: function (cols, condition, cb) {
+    orm.updateOne("burgers", cols, condition, function (res) {
       cb(res);
     });
   }
