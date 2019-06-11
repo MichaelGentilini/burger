@@ -1,8 +1,13 @@
 <li>
   <div>
     <h5 data-id="{{this.id}}">
-      <button class="btn btn-sm btn-success eat-burger" data-id="{{id}}" data-devoured="{{devoured}}">
-        {{#if devoured}}Delete{{else}} Eat It! <i class="fas fa-teeth-open"> </i>{{/if}}
+      <button class="btn btn-sm btn-success eat-burger" data-newDevoured="true" data-id="{{id}}"
+        data-devoured="{{devoured}}">
+        {{#if devoured}}
+        delete
+        {{else}}
+        Eat It!&nbsp; <i class="fas fa-teeth-open"></i>
+        {{/if}}
       </button> &nbsp;&nbsp;{{this.burger_name}} </h5>
   </div>
 
