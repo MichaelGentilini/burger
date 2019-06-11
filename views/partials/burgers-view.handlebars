@@ -1,9 +1,9 @@
 <li>
   <div>
-    <h5 data-id="{{this.id}}">{{this.burger_name}}
-      <button class="btn btn btn-success eat-burger" data-id="{{id}}" data-devoured="{{devoured}}">
+    <h5 data-id="{{this.id}}">
+      <button class="btn btn-sm btn-success eat-burger" data-id="{{id}}" data-devoured="{{devoured}}">
         {{#if devoured}}Delete{{else}} Eat It! <i class="fas fa-teeth-open"> </i>{{/if}}
-      </button></h5>
+      </button> &nbsp;&nbsp;{{this.burger_name}} </h5>
   </div>
 
 </li>

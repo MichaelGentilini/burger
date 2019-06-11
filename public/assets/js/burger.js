@@ -34,6 +34,8 @@ $(function () {
   });
 
 
+  // Put / change burger to eaten
+
   //  ? delete/eat burger
   $(".delete-burger").on("click", function (event) {
     var id = $(this).data("id");
