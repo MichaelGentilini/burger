@@ -1,25 +1,29 @@
-<h1>Burgers</h1>
+<h1 class="text-center mt-2 mb-2">Burgers</h1>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col">
+    <h4>Burgers available on the menu</h4>
 
-<h2>Burgers available on the menu</h2>
+    <ul>
+      {{#each burgers}}
+      {{#unless devoured}}
+      {{> burgers-view devoured=false}}
+      {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
+  <div class="col">
+    <h4>Burgers that have been eaten</h4>
 
-<ul>
-  {{#each burgers}}
-  {{#unless devoured}}
-  {{> burgers-view devoured=false}}
-  {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Burgers that have been eaten</h2>
-
-<ul>
-  {{#each cats}}
-  {{#if devoured}}
-  {{> burgers-view devoured=true}}
-  {{/if}}
-  {{/each}}
-</ul>
-
+    <ul>
+      {{#each burgers}}
+      {{#if devoured}}
+      {{> burgers-view devoured=true}}
+      {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
 <h3>Add a Burger</h3>
 <div class="container mt-4">
   <div class="card text-center">

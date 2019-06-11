@@ -17,10 +17,11 @@ app.use(express.json());
 var exphbs = require("express-handlebars");
 
 //this required before view engine setup
-exphbs.registerPartials(__dirname + '/views/partials');
+// exphbs.registerPartials(__dirname + '/views/partials');
 
 app.engine("handlebars", exphbs({
-  defaultLayout: "main"
+  defaultLayout: "main",
+  partialsDir: __dirname + '/views/partials/'
 }));
 app.set("view engine", "handlebars");
 

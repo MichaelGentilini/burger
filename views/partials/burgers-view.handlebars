@@ -1,0 +1,9 @@
+<li>
+  {{id}}
+
+  <button class="btn btn-success eat-burger" data-id="{{id}}" data-devoured="{{devoured}}">
+    {{#if devoured}}Eaten{{else}} <i class="fas fa-teeth-open"></i> Eat-Dat-Burger{{/if}}
+  </button>
+
+  <p data-id="{{this.id}}">{{this.burger_name}}</p>
+</li>
