@@ -26,21 +26,22 @@ $(function () {
       }).then(
         function () {
           console.log("that sounds yummy");
-          playAudio('assets/sound/mmm.mp3', 1600);
+          // playAudio('assets/sound/mmm.mp3', 1600);
+          location.reload();
         }
       );
     }
   });
 
-  // ! function for playing sounds
-  function playAudio(url, timeout) {
-    var a = new Audio(url);
-    a.play();
-    // window reloads after the audio is played
-    setTimeout(function () {
-      location.reload();
-    }, timeout);
-  }
+  // ! function for playing sounds removed as it was crashing Heroku
+  // function playAudio(url, timeout) {
+  //   var a = new Audio(url);
+  //   a.play();
+  //   // window reloads after the audio is played
+  //   setTimeout(function () {
+  //     location.reload();
+  //   }, timeout);
+  // }
 
 
   // Put / change burger to eaten
@@ -61,7 +62,8 @@ $(function () {
       .then(
         function () {
           // Play Bite sound
-          playAudio('assets/sound/bite.mp3', 150);
+          // playAudio('assets/sound/bite.mp3', 150);
+          location.reload();
         })
   });
 
@@ -75,7 +77,8 @@ $(function () {
     }).then(
       function () {
         console.log("burger deleted from the menu");
-        playAudio('assets/sound/byebye.mp3', 700);
+        // playAudio('assets/sound/byebye.mp3', 700);
+        location.reload();
       }
     );
   });
