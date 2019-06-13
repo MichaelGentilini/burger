@@ -33,10 +33,16 @@ $(function () {
     }
   });
 
-
+  function playAudio(url) {
+    var a = new Audio('assets/sound/bite.mp3');
+    a.play();
+    setTimeout(function () {
+      location.reload();
+    }, 200);
+  }
   // Put / change burger to eaten
   //  ? delete/eat burger
-  $(".eat-burger").on("click", function (event) {
+  $(".eat-burger").on("click", function (event, cb) {
     // console.log(this).data('id');
     console.log($(this))
 
@@ -47,34 +53,19 @@ $(function () {
     var eaten = {
       devoured: newDevoured
     };
-    var $button = $(this);
 
-    console.log($button)
-    console.log("devoured was set to " + devoured);
-    console.log("devoured is now set to " + newDevoured);
-
-    if ($(this).data("devoured")) {
-      var $button = $(this);
-      // console.log($button)
-
-      console.log('this has been changed');
-
-      // $(this).parent().remove();
-    }
-    // console.log('eating a burger with id of ' + id);
     // Send the DELETE request.
     $.ajax("/api/burgers/" + id, {
       type: "Put",
       data: eaten
     }).then(
-      function () {
-        console.log("deleted burger", id);
+      function (cb) {
+
         // Reload the page to get the updated list
-        // location.reload();
-        $button.removeClass("btn-success").addClass('btn-danger');
-      }
-    );
-    $button.removeClass("btn btn-sm btn-success eat-burger").addClass('btn btn-danger');
+        playAudio();
+
+
+      });
 
   })
 });
