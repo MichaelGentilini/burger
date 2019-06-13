@@ -13,6 +13,3 @@ VALUES
   ("Patty Melt", false),
   ("Hawaiian Burger", false),
   ("Super Special Burger", false);
-
-SELECT *
-FROM burgers_db.burgers;
