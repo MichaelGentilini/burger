@@ -25,47 +25,58 @@ $(function () {
         data: newBurger
       }).then(
         function () {
-          console.log("created new burger");
-          // Reload the page to get the updated list
-          location.reload();
+          console.log("that sounds yummy");
+          playAudio('assets/sound/mmm.mp3', 1600);
         }
       );
     }
   });
 
-  function playAudio(url) {
-    var a = new Audio('assets/sound/bite.mp3');
+  // ! function for playing sounds
+  function playAudio(url, timeout) {
+    var a = new Audio(url);
     a.play();
+    // window reloads after the audio is played
     setTimeout(function () {
       location.reload();
-    }, 200);
+    }, timeout);
   }
+
+
   // Put / change burger to eaten
   //  ? delete/eat burger
-  $(".eat-burger").on("click", function (event, cb) {
-    // console.log(this).data('id');
-    console.log($(this))
+  $(".eat-burger").on("click", function (event) {
 
     var id = $(this).data("id");
-    var devoured = $(this).data("devoured");
     var newDevoured = $(this).data("newdevoured");
 
     var eaten = {
       devoured: newDevoured
     };
-
-    // Send the DELETE request.
+    // Send the Put request.
     $.ajax("/api/burgers/" + id, {
-      type: "Put",
-      data: eaten
+        type: "Put",
+        data: eaten
+      })
+      .then(
+        function () {
+          // Play Bite sound
+          playAudio('assets/sound/bite.mp3', 150);
+        })
+  });
+
+  // Delete burger from database/menu
+  $(".btn-danger").on("click", function (event) {
+    var id = $(this).data("id");
+
+    //  Ajax Delete Request
+    $.ajax("/api/burgers/" + id, {
+      type: "DELETE"
     }).then(
-      function (cb) {
-
-        // Reload the page to get the updated list
-        playAudio();
-
-
-      });
-
-  })
+      function () {
+        console.log("burger deleted from the menu");
+        playAudio('assets/sound/byebye.mp3', 700);
+      }
+    );
+  });
 });

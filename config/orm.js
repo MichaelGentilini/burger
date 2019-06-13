@@ -80,6 +80,19 @@ var orm = {
       }
       cb(result);
     });
+  },
+  deleteOne: function (tableName, condition, cb) {
+    var queryString = "DELETE FROM " + tableName;
+    queryString += " WHERE ";
+    queryString += condition;
+
+    connection.query(queryString, function (err, result) {
+      if (err) {
+        throw err;
+      }
+
+      cb(result);
+    });
   }
 };
 
